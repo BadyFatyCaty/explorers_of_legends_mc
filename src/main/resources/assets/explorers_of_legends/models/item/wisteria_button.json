@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "explorers_of_legends:block/wisteria_planks"
+  }
+}

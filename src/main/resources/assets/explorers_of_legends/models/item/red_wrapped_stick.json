@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "explorers_of_legends:item/colored/red_wrapped_stick"
+  }
+}

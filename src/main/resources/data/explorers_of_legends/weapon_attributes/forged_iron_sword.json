@@ -1,0 +1,7 @@
+{
+  "parent": "explorers_of_legends:weapon_type/sword",
+  "attributes": {
+    "two_handed": false,
+    "category": "sword"
+  }
+}

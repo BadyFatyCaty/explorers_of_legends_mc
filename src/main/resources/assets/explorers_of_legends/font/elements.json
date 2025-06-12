@@ -1,0 +1,16 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "explorers_of_legends:font/elements_16x.png",
+      "ascent": 9,
+      "height": 9,
+      "chars": [
+        "\uF000\uF001\uF002\uF003",
+        "\uF004\uF005\uF006\uF007",
+        "\uF008\uF009\uF010\uF011",
+        "\uF012\uF013\uF014\uF015"
+      ]
+    }
+  ]
+}

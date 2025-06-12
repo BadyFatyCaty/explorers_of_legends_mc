@@ -1,0 +1,9 @@
+{
+  "parent": "explorers_of_legends:block/hanging_wisteria_vines",
+  "textures": {
+		"particle": "explorers_of_legends:block/wisteria_leaves_pink",
+		"top": "explorers_of_legends:block/wisteria_leaves_pink",
+		"side": "explorers_of_legends:block/pink_wisteria_vine",
+		"center": "explorers_of_legends:block/pink_wisteria_vine_long"
+	}
+}

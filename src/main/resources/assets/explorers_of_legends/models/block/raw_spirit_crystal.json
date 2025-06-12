@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "explorers_of_legends:block/raw_spirit_crystal"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "explorers_of_legends:weapon_type/spear",
+  "attributes": {
+    "two_handed": true,
+    "category": "spear"
+  }
+}

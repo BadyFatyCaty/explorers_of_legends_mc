@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "explorers_of_legends:blank_cast"
+  },
+  "result": "explorers_of_legends:boots_cast",
+  "count": 1
+}

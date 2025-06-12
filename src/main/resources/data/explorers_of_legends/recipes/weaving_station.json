@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "@": {
+      "tag": "explorers_of_legends:strings"
+    }
+  },
+  "pattern": [
+    "@@@",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "explorers_of_legends:weaving_station"
+  },
+  "show_notification": true
+}

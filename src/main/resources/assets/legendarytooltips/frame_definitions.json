@@ -1,0 +1,67 @@
+{
+	"definitions": [
+		{
+		"index": 0,
+		"image": "legendarytooltips:textures/gui/explorers_of_legends_rarities.png",
+		"startColor": "#e71c23",
+		"endColor": "#bb0012",
+		"bgStartColor": "#280b26",
+		"bgEndColor": "#280b26",
+		"selectors": ["^\uE005"]
+		},
+		{
+		"index": 1,
+		"image": "legendarytooltips:textures/gui/explorers_of_legends_rarities.png",
+		"startColor": "#f1e43a",
+		"endColor": "#dfab30",
+		"bgStartColor": "#220c27",
+		"bgEndColor": "#220c27",
+		"selectors": ["^\uE004"]
+		},
+		{
+		"index": 2,
+		"image": "legendarytooltips:textures/gui/explorers_of_legends_rarities.png",
+		"startColor": "#b56bff",
+		"endColor": "#8542ef",
+		"bgStartColor": "#1a112e",
+		"bgEndColor": "#1a112e",
+		"selectors": ["^\uE003"]
+		},
+		{
+		"index": 3,
+		"image": "legendarytooltips:textures/gui/explorers_of_legends_rarities.png",
+		"startColor": "#4facfb",
+		"endColor": "#1e80f3",
+		"bgStartColor": "#0e092f",
+		"bgEndColor": "#0e092f",
+		"selectors": ["^\uE002"]
+		},
+		{
+		"index": 4,
+		"image": "legendarytooltips:textures/gui/explorers_of_legends_rarities.png",
+		"startColor": "#9ae363",
+		"endColor": "#32b046",
+		"bgStartColor": "#0c1327",
+		"bgEndColor": "#0c1327",
+		"selectors": ["^\uE001"]
+		},
+		{
+		"index": 5,
+		"image": "legendarytooltips:textures/gui/explorers_of_legends_rarities.png",
+		"startColor": "#ffffff",
+		"endColor": "#afd3de",
+		"bgStartColor": "#19102e",
+		"bgEndColor": "#19102e",
+		"selectors": ["^\uE000", "!common", "!uncommon", "!rare", "!epic"]
+		},
+		{
+		"index": 6,
+		"image": "legendarytooltips:textures/gui/explorers_of_legends_rarities.png",
+		"startColor": "30_#B02E26_#F9801D_#FED83D_#80C71F_#3AB3DA_#8932B8_#C74EBD",
+		"endColor": "30_#F9801D_#FED83D_#80C71F_#3AB3DA_#8932B8_#C74EBD_#B02E26",
+		"bgStartColor": "30_#B02E26-v160_#F9801D-v190_#FED83D-v190_#80C71F-v190_#3AB3DA-v160_#8932B8-v160_#C74EBD-v160",
+		"bgEndColor": "30_#F9801D-v170-s80_#FED83D-v160-s80_#80C71F-v120-s80_#3AB3DA-v120-s80_#8932B8-v120-s80_#C74EBD-v120-s80_#B02E26-v120-s80",
+		"selectors": ["^\uE006"]
+		}
+	]
+}

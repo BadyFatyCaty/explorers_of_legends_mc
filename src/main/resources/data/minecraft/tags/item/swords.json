@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:diamond_sword",
+    "minecraft:stone_sword",
+    "minecraft:golden_sword",
+    "minecraft:netherite_sword",
+    "minecraft:wooden_sword",
+    "minecraft:iron_sword",
+    "#explorers_of_legends:swords",
+    "#explorers_of_legends:claymores",
+    "#explorers_of_legends:daggers",
+    "#explorers_of_legends:spears"
+  ]
+}

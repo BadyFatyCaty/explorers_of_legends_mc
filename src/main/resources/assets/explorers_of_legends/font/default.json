@@ -1,0 +1,16 @@
+{
+    "providers": [
+        {
+            "type": "reference",
+            "id": "explorers_of_legends:rarities"
+        },
+        {
+            "type": "reference",
+            "id": "explorers_of_legends:elements"
+        },
+        {
+            "type": "reference",
+            "id": "explorers_of_legends:attributes"
+        }
+    ]
+}

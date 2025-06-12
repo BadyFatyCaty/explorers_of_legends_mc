@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "explorers_of_legends:block/spirit_infuser"
+    },
+    "active=true": {
+      "model": "explorers_of_legends:block/spirit_infuser_active"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "parent": "explorers_of_legends:magic",
+    "criteria": {
+        "obtain_fire": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "display": {
+        "description": {
+            "translate": "advancement.magic.fire.desc"
+        },
+        "icon": {
+            "count": 1,
+            "id": "minecraft:blaze_powder"
+        },
+        "title": {
+            "translate": "advancement.magic.fire.title"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    }
+}

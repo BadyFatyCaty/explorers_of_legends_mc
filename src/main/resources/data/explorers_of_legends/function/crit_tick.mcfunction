@@ -1,0 +1,1 @@
+execute as @e[tag=crit_hitted] at @s run function explorers_of_legends:crit_particle

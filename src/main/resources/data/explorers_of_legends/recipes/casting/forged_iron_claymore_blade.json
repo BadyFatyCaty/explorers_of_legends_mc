@@ -1,0 +1,16 @@
+{
+  "type": "explorers_of_legends:casting",
+  "ingredients": [
+    {
+      "item": "explorers_of_legends:molten_forged_iron_filled_crucible"
+    },
+    {
+      "item": "explorers_of_legends:claymore_blade_cast"
+    }
+  ],
+  "result": {
+    "item": "explorers_of_legends:forged_iron_claymore_blade",
+    "count": 1
+  },
+  "amount_used": 3
+}

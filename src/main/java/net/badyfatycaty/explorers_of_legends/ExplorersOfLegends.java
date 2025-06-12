@@ -1,22 +1,24 @@
 package net.badyfatycaty.explorers_of_legends;
 
-import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
+import net.badyfatycaty.explorers_of_legends.attributes.ModAttributes;
+import net.badyfatycaty.explorers_of_legends.block.ModBlocks;
+import net.badyfatycaty.explorers_of_legends.block.entity.ModBlockEntities;
+import net.badyfatycaty.explorers_of_legends.components.ModDataComponents;
+import net.badyfatycaty.explorers_of_legends.effect.ModEffects;
+import net.badyfatycaty.explorers_of_legends.events.ModBowEvents;
+import net.badyfatycaty.explorers_of_legends.items.ModCreativeModeTabs;
+import net.badyfatycaty.explorers_of_legends.items.ModItems;
+import net.badyfatycaty.explorers_of_legends.items.categories.CrucibleItems;
+import net.badyfatycaty.explorers_of_legends.items.categories.ForgedIronItems;
+import net.badyfatycaty.explorers_of_legends.particle.BloodParticles;
+import net.badyfatycaty.explorers_of_legends.particle.CritSkullParticle;
+import net.badyfatycaty.explorers_of_legends.particle.ModParticles;
+import net.badyfatycaty.explorers_of_legends.screen.ModMenuTypes;
+import net.badyfatycaty.explorers_of_legends.screen.custom.ForgeScreen;
+import net.badyfatycaty.explorers_of_legends.util.ModItemProperties;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -26,22 +28,22 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(ExplorersOfLegends.MODID)
+@Mod(ExplorersOfLegends.MOD_ID)
 public class ExplorersOfLegends
 {
     // Define mod id in a common place for everything to reference
+    public static final String MOD_ID = "explorers_of_legends";
     public static final String MODID = "explorers_of_legends";
-    // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -50,24 +52,39 @@ public class ExplorersOfLegends
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-
-
-
-
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+        // Do not add this line if there are no @SubscribeEvent-annotated function in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModAttributes.registerAllAttributes(modEventBus);
+
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModDataComponents.register(modEventBus);
+
+        CrucibleItems.register(modEventBus);
+        ForgedIronItems.register(modEventBus);
+
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
+
+        ModEffects.register(modEventBus);
+        ModParticles.register(modEventBus);
+
+        NeoForge.EVENT_BUS.register(ModBowEvents.class);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
+
     }
 
     // Add the example block item to the building blocks tab
@@ -80,20 +97,32 @@ public class ExplorersOfLegends
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            ModItemProperties.addCustomItemProperties();
+            ItemProperties.register(ForgedIronItems.FORGED_IRON_SHIELD.get(), ResourceLocation.fromNamespaceAndPath("minecraft", "blocking"),
+                    (stack, level, entity, seed) -> {
+                        return (entity != null && entity.isUsingItem() && entity.getUseItem() == stack) ? 1.0F : 0.0F;
+                    });
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.FORGE_MENU.get(), ForgeScreen::new);
+        }
+
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.BLOOD_PARTICLES.get(), BloodParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.CRIT_SKULL.get(), CritSkullParticle.Provider::new);
         }
     }
 }

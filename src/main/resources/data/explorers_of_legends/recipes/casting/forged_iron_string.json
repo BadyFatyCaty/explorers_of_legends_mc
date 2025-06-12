@@ -1,0 +1,16 @@
+{
+  "type": "explorers_of_legends:casting",
+  "ingredients": [
+    {
+      "item": "explorers_of_legends:molten_forged_iron_filled_crucible"
+    },
+    {
+      "item": "explorers_of_legends:string_cast"
+    }
+  ],
+  "result": {
+    "item": "explorers_of_legends:forged_iron_string",
+    "count": 4
+  },
+  "amount_used": 1
+}

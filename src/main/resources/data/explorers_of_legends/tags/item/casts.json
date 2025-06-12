@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "explorers_of_legends:ingot_cast",
+    "explorers_of_legends:stick_cast",
+    "explorers_of_legends:string_cast",
+    "explorers_of_legends:axe_head_cast",
+    "explorers_of_legends:pickaxe_head_cast",
+    "explorers_of_legends:hoe_head_cast",
+    "explorers_of_legends:shovel_head_cast",
+    "explorers_of_legends:bow_stave_cast",
+    "explorers_of_legends:long_bow_stave_cast",
+    "explorers_of_legends:claymore_blade_cast",
+    "explorers_of_legends:claymore_guard_cast",
+    "explorers_of_legends:sword_blade_cast",
+    "explorers_of_legends:sword_guard_cast",
+    "explorers_of_legends:rapid_crossbow_stock_cast",
+    "explorers_of_legends:rapid_crossbow_prod_cast",
+    "explorers_of_legends:crossbow_stock_cast",
+    "explorers_of_legends:crossbow_prod_cast",
+    "explorers_of_legends:dagger_blade_cast",
+    "explorers_of_legends:double_axe_head_cast",
+    "explorers_of_legends:spear_head_cast",
+    "explorers_of_legends:glaive_blade_cast",
+    "explorers_of_legends:mace_head_cast",
+    "explorers_of_legends:scythe_head_cast",
+    "explorers_of_legends:shield_cast",
+    "explorers_of_legends:staff_conduit_cast",
+    "explorers_of_legends:wand_conduit_cast",
+    "explorers_of_legends:ring_cast"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "creativetab.explorers_of_legends.explorers_of_legends_ingredients": "Explorers of Legends: Ingredients",
+  "creativetab.explorers_of_legends.explorers_of_legends_natural_blocks": "Explorers of Legends: Natural Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_tools_and_utilities": "Explorers of Legends: Tools & Utilities",
+  "creativetab.explorers_of_legends.explorers_of_legends_functional_blocks": "Explorers of Legends: Functional Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_building_blocks": "Explorers of Legends: Building Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_combat": "Explorers of Legends: Combat",
+  "creativetab.explorers_of_legends.explorers_of_legends_redstone_blocks": "Explorers of Legends: Redstone Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_spawn_eggs": "Explorers of Legends: Spawn Eggs",
+
+  "effect.explorers_of_legends.bleeding": "Bleeding",
+  "effect.explorers_of_legends.spell_casting": "Casting Spells",
+
+  "death.attack.bleeding": "%1$s bled out",
+  "death.attack.bleeding.player": "%1$s bled out due to %2$s",
+
+  "death.attack.melee": "%1$s was severed",
+  "death.attack.melee.player": "%1$s was severed by %2$s",
+
+  "death.attack.projectile": "%1$s became a pin cushion",
+  "death.attack.projectile.player": "%1$s became a pin cushion due to %2$s",
+
+  "death.attack.magic": "%1$s was nullified",
+  "death.attack.magic.player": "%1$s was nullified due to %2$s",
+
+  "death.attack.summon": "%1$s was sent to the afterlife by a spirit",
+  "death.attack.summon.player": "%1$s .was sent to the afterlife by %2$s's spirit",
+
+  "death.attack.water": "%1$s burst into bubbles",
+  "death.attack.water.player": "%1$s burst into bubbles by the hands of %2$s",
+  "death.attack.wind": "%1$s did not master spinjetzu",
+  "death.attack.wind.player": "%1$s was made into a failed spinjetzu example by %2$s",
+  "death.attack.fire": "%1$s was set aflame",
+  "death.attack.fire.player": "%1$s was set aflame due to %2$s",
+  "death.attack.plant": "%1$s became a tree",
+  "death.attack.plant.player": "%1$s became a tree due to %2$s",
+  "death.attack.earth": "%1$s was buried in stone",
+  "death.attack.earth.player": "%1$s was buried in stone by %2$s",
+  "death.attack.light": "%1$s erased by a beam of light",
+  "death.attack.light.player": "%1$s erased by a beam of light from %2$s",
+  "death.attack.dark": "%1$s was blinded and killed",
+  "death.attack.dark.player": "%1$s was blinded and killed by %2$s",
+
+  "attribute.explorers_of_legends.max_mana": "Max Mana",
+  "attribute.explorers_of_legends.mana": "Mana",
+  "attribute.explorers_of_legends.mana_regen": "Mana Regeneration Rate",
+
+  "attribute.explorers_of_legends.max_stamina": "Max Stamina",
+  "attribute.explorers_of_legends.stamina": "Stamina",
+  "attribute.explorers_of_legends.stamina_regen": "Stamina Regeneration Rate",
+
+  "attribute.explorers_of_legends.crit_rate": "Critical Hit Rate",
+  "attribute.explorers_of_legends.crit_damage": "Critical Hit Damage",
+
+  "attribute.explorers_of_legends.water_damage": "Water Damage",
+  "attribute.explorers_of_legends.water_resistance": "Water Resistance",
+  "attribute.explorers_of_legends.wind_damage": "Wind Damage",
+  "attribute.explorers_of_legends.wind_resistance": "Wind Resistance",
+  "attribute.explorers_of_legends.fire_damage": "Fire Damage",
+  "attribute.explorers_of_legends.fire_resistance": "Fire Resistance",
+  "attribute.explorers_of_legends.plant_damage": "Plant Damage",
+  "attribute.explorers_of_legends.plant_resistance": "Plant Resistance",
+  "attribute.explorers_of_legends.earth_damage": "Earth Damage",
+  "attribute.explorers_of_legends.earth_resistance": "Earth Resistance",
+  "attribute.explorers_of_legends.light_damage": "Light Damage",
+  "attribute.explorers_of_legends.light_resistance": "Light Resistance",
+  "attribute.explorers_of_legends.dark_damage": "Dark Damage",
+  "attribute.explorers_of_legends.dark_resistance": "Dark Resistance",
+
+  "attribute.explorers_of_legends.spirit_damage": "Spirit Damage",
+  "attribute.explorers_of_legends.spirit_health": "Spirit Health",
+  "attribute.explorers_of_legends.spirit_movement_speed": "Spirit Movement Speed",
+  "attribute.explorers_of_legends.spirit_attack_speed": "Spirit Attack Speed",
+
+  "attribute.explorers_of_legends.projectile_damage": "Projectile Damage",
+  "attribute.explorers_of_legends.draw_speed": "Draw Speed",
+  "attribute.explorers_of_legends.projectile_resistance": "Projectile Resistance",
+
+  "attribute.explorers_of_legends.health_regen": "Health Regeneration Rate",
+
+  "tooltip.explorers_of_legends.enchantments": "Enchantments",
+  "tooltip.explorers_of_legends.empty_slot": "Empty",
+
+  "advancement.magic.title": "Magic",
+  "advancement.magic.desc": "Unlock Access to the Ether.",
+  "advancement.magic.fire.title": "Fire",
+  "advancement.magic.fire.desc": "Harness the power of flame.",
+  "advancement.magic.water.title": "Water",
+  "advancement.magic.water.desc": "Harness the current.",
+
+  "key.category.explorers_of_legends.general": "Explorers Of Ether",
+
+  "block.explorers_of_legends.forge": "Forge",
+
+  "item.explorers_of_legends.crucible": "Crucible",
+  "item.explorers_of_legends.crucible.tooltip": "Molten Alloy Left"
+}

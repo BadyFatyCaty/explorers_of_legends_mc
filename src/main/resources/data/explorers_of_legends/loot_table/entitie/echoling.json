@@ -1,0 +1,65 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "explorers_of_legends:fire_spirit",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "explorers_of_legends:wind_spirit",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "explorers_of_legends:water_spirit",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "explorers_of_legends:fragmented_spirit",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1,
+                "min": 0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1,
+                "min": 0
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "explorers_of_legends:soul_orb"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "explorers_of_legends:entities/echoling"
+}
