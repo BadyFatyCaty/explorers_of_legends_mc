@@ -2,7 +2,6 @@ package net.badyfatycaty.explorers_of_legends.attributes.spirit;
 
 import net.badyfatycaty.explorers_of_legends.ExplorersOfLegends;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -12,13 +11,13 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public class SpiritAttackSpeed {
+public class SpectralResistance {
     public static final DeferredRegister<Attribute> REGISTRY = DeferredRegister.create(BuiltInRegistries.ATTRIBUTE, ExplorersOfLegends.MODID);
-    public static final DeferredHolder<Attribute, Attribute> SPIRIT_ATTACK_SPEED = REGISTRY.register("spirit_attack_speed", () -> new RangedAttribute("attribute.explorers_of_legends.spirit_attack_speed",
-            4, 0, 1024).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
+    public static final DeferredHolder<Attribute, Attribute> SPECTRAL_RESISTANCE = REGISTRY.register("spectral_resistance", () -> new RangedAttribute("attribute.explorers_of_legends.spectral_resistance",
+            0, 0, 2048).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     @SubscribeEvent
     public static void addAttributes(EntityAttributeModificationEvent event) {
-        event.add(EntityType.PLAYER, SPIRIT_ATTACK_SPEED);
+        event.getTypes().forEach(entity -> event.add(entity, SPECTRAL_RESISTANCE));
     }
 }

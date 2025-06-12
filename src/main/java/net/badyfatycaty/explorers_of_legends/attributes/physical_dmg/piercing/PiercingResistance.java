@@ -1,8 +1,7 @@
-package net.badyfatycaty.explorers_of_legends.attributes.spirit;
+package net.badyfatycaty.explorers_of_legends.attributes.physical_dmg.piercing;
 
 import net.badyfatycaty.explorers_of_legends.ExplorersOfLegends;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -12,13 +11,13 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public class SpiritHealth {
+public class PiercingResistance {
     public static final DeferredRegister<Attribute> REGISTRY = DeferredRegister.create(BuiltInRegistries.ATTRIBUTE, ExplorersOfLegends.MODID);
-    public static final DeferredHolder<Attribute, Attribute> SPIRIT_HEALTH = REGISTRY.register("spirit_health", () -> new RangedAttribute("attribute.explorers_of_legends.spirit_health",
+    public static final DeferredHolder<Attribute, Attribute> PIERCING_RESISTANCE = REGISTRY.register("piercing_resistance", () -> new RangedAttribute("attribute.explorers_of_legends.piercing_resistance",
             0, 0, 2048).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     @SubscribeEvent
     public static void addAttributes(EntityAttributeModificationEvent event) {
-        event.add(EntityType.PLAYER, SPIRIT_HEALTH);
+        event.getTypes().forEach(entity -> event.add(entity, PIERCING_RESISTANCE));
     }
 }

@@ -1,8 +1,7 @@
-package net.badyfatycaty.explorers_of_legends.attributes.spirit;
+package net.badyfatycaty.explorers_of_legends.attributes.physical_dmg.piercing;
 
 import net.badyfatycaty.explorers_of_legends.ExplorersOfLegends;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -12,13 +11,13 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public class SpiritMovementSpeed {
+public class PiercingDamage {
     public static final DeferredRegister<Attribute> REGISTRY = DeferredRegister.create(BuiltInRegistries.ATTRIBUTE, ExplorersOfLegends.MODID);
-    public static final DeferredHolder<Attribute, Attribute> SPIRIT_MOVEMENT_SPEED = REGISTRY.register("spirit_movement_speed", () -> new RangedAttribute("attribute.explorers_of_legends.spirit_movement_speed",
-            0.7, 0, 1024).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
+    public static final DeferredHolder<Attribute, Attribute> PIERCING_DAMAGE = REGISTRY.register("piercing_damage", () -> new RangedAttribute("attribute.explorers_of_legends.piercing_damage",
+            0, 0, 2048).setSyncable(true).setSentiment(Attribute.Sentiment.POSITIVE));
 
     @SubscribeEvent
     public static void addAttributes(EntityAttributeModificationEvent event) {
-        event.add(EntityType.PLAYER, SPIRIT_MOVEMENT_SPEED);
+        event.getTypes().forEach(entity -> event.add(entity, PIERCING_DAMAGE));
     }
 }
