@@ -5,7 +5,7 @@
     "attacks": [
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -15,7 +15,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -25,7 +25,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -35,7 +35,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -45,7 +45,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -55,7 +55,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -65,7 +65,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -75,7 +75,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -85,7 +85,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -95,7 +95,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -105,7 +105,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -115,7 +115,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 0.5,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",
@@ -125,7 +125,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 1.2,
+        "damage_multiplier": 1,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",

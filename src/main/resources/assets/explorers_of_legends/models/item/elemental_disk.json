@@ -1,0 +1,6 @@
+{
+  "parent": "explorers_of_legends:item/base/chakram",
+  "textures": {
+    "layer0": "explorers_of_legends:item/elemental_disk"
+  }
+}

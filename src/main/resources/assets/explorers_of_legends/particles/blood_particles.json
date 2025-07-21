@@ -1,7 +1,9 @@
 {
   "textures": [
-    "explorers_of_legends:blood",
-    "explorers_of_legends:blood_small_1",
-    "explorers_of_legends:blood_small_1"
+    "explorers_of_legends:blood_0",
+    "explorers_of_legends:blood_1",
+    "explorers_of_legends:blood_2",
+    "explorers_of_legends:blood_3",
+    "explorers_of_legends:blood_drip"
   ]
 }

@@ -1,7 +1,3 @@
 {
-  "parent": "explorers_of_legends:weapon_type/hoe",
-  "attributes": {
-    "two_handed": false,
-    "category": "hoe"
-  }
+  "parent": "explorers_of_legends:weapon_type/hoe"
 }

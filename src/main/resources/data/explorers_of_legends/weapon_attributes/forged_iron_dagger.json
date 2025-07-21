@@ -1,7 +1,3 @@
 {
-  "parent": "explorers_of_legends:weapon_type/dagger",
-  "attributes": {
-    "two_handed": false,
-    "category": "dagger"
-  }
+  "parent": "explorers_of_legends:weapon_type/dagger"
 }

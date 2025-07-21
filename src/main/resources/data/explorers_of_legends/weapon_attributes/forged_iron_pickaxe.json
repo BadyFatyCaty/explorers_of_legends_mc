@@ -1,7 +1,3 @@
 {
-  "parent": "explorers_of_legends:weapon_type/pickaxe",
-  "attributes": {
-    "two_handed": false,
-    "category": "pickaxe"
-  }
+  "parent": "explorers_of_legends:weapon_type/pickaxe"
 }

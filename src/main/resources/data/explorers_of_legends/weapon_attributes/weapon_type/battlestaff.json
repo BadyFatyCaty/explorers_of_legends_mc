@@ -6,6 +6,7 @@
     "attacks": [
       {
         "hitbox": "HORIZONTAL_PLANE",
+        "damage_multiplier": 1,
         "damage_multiplier": 0.8,
         "angle": 180,
         "upswing": 0.5,
@@ -16,6 +17,7 @@
       },
       {
         "hitbox": "HORIZONTAL_PLANE",
+        "damage_multiplier": 1,
         "damage_multiplier": 1,
         "angle": 180,
         "upswing": 0.5,

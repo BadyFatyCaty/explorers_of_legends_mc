@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "explorers_of_legends:epic"
+    "explorers_of_legends:epic",
+    "explorers_of_legends:elemental_disk"
   ]
 }

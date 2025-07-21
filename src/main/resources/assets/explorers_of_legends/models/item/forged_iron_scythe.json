@@ -1,0 +1,6 @@
+{
+  "parent": "explorers_of_legends:item/base/spear_28",
+  "textures": {
+    "layer0": "explorers_of_legends:item/forged_iron/scythe/forged_iron_scythe"
+  }
+}

@@ -1,7 +1,3 @@
 {
-  "parent": "explorers_of_legends:weapon_type/mace",
-  "attributes": {
-    "two_handed": false,
-    "category": "mace"
-  }
+  "parent": "explorers_of_legends:weapon_type/mace"
 }

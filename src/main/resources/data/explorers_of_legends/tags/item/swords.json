@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "explorers_of_legends:forged_iron_sword"
+    "explorers_of_legends:forged_iron_sword",
+    "explorers_of_legends:forged_iron_katana"
   ]
 }

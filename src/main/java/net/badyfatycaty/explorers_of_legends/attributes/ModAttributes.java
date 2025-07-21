@@ -18,6 +18,7 @@ import net.badyfatycaty.explorers_of_legends.attributes.magic.MagicResistance;
 import net.badyfatycaty.explorers_of_legends.attributes.mana.Mana;
 import net.badyfatycaty.explorers_of_legends.attributes.mana.ManaRegen;
 import net.badyfatycaty.explorers_of_legends.attributes.mana.MaxMana;
+import net.badyfatycaty.explorers_of_legends.attributes.physical_dmg.TooltipPhysicalDMG;
 import net.badyfatycaty.explorers_of_legends.attributes.physical_dmg.blunt.BluntDamage;
 import net.badyfatycaty.explorers_of_legends.attributes.physical_dmg.blunt.BluntResistance;
 import net.badyfatycaty.explorers_of_legends.attributes.physical_dmg.piercing.PiercingDamage;
@@ -81,12 +82,14 @@ public class ModAttributes {
 
         HealthRegen.REGISTRY.register(modEventBus);
 
+        TooltipPhysicalDMG.REGISTRY.register(modEventBus);
         BluntDamage.REGISTRY.register(modEventBus);
         BluntResistance.REGISTRY.register(modEventBus);
         PiercingDamage.REGISTRY.register(modEventBus);
         PiercingResistance.REGISTRY.register(modEventBus);
         SlicingDamage.REGISTRY.register(modEventBus);
         SlicingResistance.REGISTRY.register(modEventBus);
+
     }
 
 }

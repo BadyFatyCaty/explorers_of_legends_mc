@@ -6,6 +6,36 @@
     "category": "katana",
     "attacks": [
       {
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1.0,
+        "angle": 0,
+        "upswing": 0.5,
+        "animation": "explorers_of_legends:dragable_slash_upward",
+        "swing_sound": {
+          "id": "bettercombat:scythe_slash"
+        }
+      },
+      {
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1.5,
+        "angle": 0,
+        "upswing": 0.5,
+        "animation": "bettercombat:two_handed_slam",
+        "swing_sound": {
+          "id": "bettercombat:anchor_slam"
+        }
+      },
+      {
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1,
+        "angle": 0,
+        "upswing": 0.5,
+        "animation": "bettercombat:two_handed_stab_left",
+        "swing_sound": {
+          "id": "bettercombat:spear_stab"
+        }
+      },
+      {
         "hitbox": "HORIZONTAL_PLANE",
         "damage_multiplier": 0.8,
         "angle": 120,
@@ -16,11 +46,11 @@
         }
       },
       {
-        "hitbox": "VERTICAL_PLANE",
-        "damage_multiplier": 1.2,
+        "hitbox": "HORIZONTAL_PLANE",
+        "damage_multiplier": 0.8,
         "angle": 120,
         "upswing": 0.5,
-        "animation": "bettercombat:two_handed_slash_vertical_left",
+        "animation": "bettercombat:two_handed_slash_horizontal_left",
         "swing_sound": {
           "id": "bettercombat:katana_slash"
         }
@@ -36,13 +66,23 @@
         }
       },
       {
-        "hitbox": "HORIZONTAL_PLANE",
-        "damage_multiplier": 0.8,
+        "hitbox": "VERTICAL_PLANE",
+        "damage_multiplier": 1.2,
         "angle": 120,
         "upswing": 0.5,
-        "animation": "bettercombat:two_handed_slash_horizontal_left",
+        "animation": "bettercombat:two_handed_slash_vertical_left",
         "swing_sound": {
           "id": "bettercombat:katana_slash"
+        }
+      },
+      {
+        "hitbox": "FORWARD_BOX",
+        "damage_multiplier": 1,
+        "angle": 0,
+        "upswing": 0.5,
+        "animation": "bettercombat:two_handed_stab_right",
+        "swing_sound": {
+          "id": "bettercombat:spear_stab"
         }
       }
     ]

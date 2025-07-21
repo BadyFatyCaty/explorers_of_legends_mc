@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "explorers_of_legends:item/dna_base",
+    "layer1": "explorers_of_legends:item/dna_overlay"
+  }
+}

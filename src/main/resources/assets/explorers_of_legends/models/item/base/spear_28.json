@@ -1,5 +1,5 @@
 {
-  "parent": "explorers_of_legends:item/base/spear",
+  "parent": "explorers_of_legends:item/base/spear_32",
   "display": {
     "gui": {
       "rotation": [ 0, 0, 0 ],

@@ -11,10 +11,13 @@ public class CrucibleItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ExplorersOfLegends.MOD_ID);
 
     public static final DeferredItem<Item> CURCIBLE = ITEMS.register("crucible",
-            () -> new CrucibleItem(new Item.Properties(), 0));
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<Item> RAW_IRON_AND_DIAMOND_CRUCIBLE = ITEMS.register("raw_iron_and_diamond_filled_crucible",
+            () -> new Item(new Item.Properties().stacksTo(16)));
 
     public static final DeferredItem<Item> FORGED_IRON_CURCIBLE = ITEMS.register("molten_forged_iron_filled_crucible",
-            () -> new CrucibleItem(new Item.Properties(), 5));
+            () -> new CrucibleItem(new Item.Properties(), 8));
 
 
     public static void register(IEventBus eventBus) {

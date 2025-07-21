@@ -1,7 +1,3 @@
 {
-  "parent": "explorers_of_legends:weapon_type/axe",
-  "attributes": {
-    "two_handed": false,
-    "category": "axe"
-  }
+  "parent": "explorers_of_legends:weapon_type/axe"
 }

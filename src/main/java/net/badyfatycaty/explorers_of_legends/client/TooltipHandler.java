@@ -151,6 +151,7 @@ public class TooltipHandler {
 
 
         // ─── Attribute Modifiers Section ───────────────────────────────────────────────
+        boolean hasPhysicalAttack = false;
         // ─── Remove Vanilla Attribute Lines ─────────────────────────────────────
         tooltip.removeIf(line -> {
             String raw = line.getString().toLowerCase();
@@ -191,6 +192,11 @@ public class TooltipHandler {
                     || raw.contains("projectile damage")
                     || raw.contains("draw speed")
                     || raw.contains("attack range")
+                    || raw.contains("slicing damage")
+                    || raw.contains("critical hit rate")
+                    || raw.contains("critical hit damage")
+                    || raw.contains("physical attack")
+                    || raw.contains("spectral damage")
                     ;
         });
 
@@ -264,41 +270,90 @@ public class TooltipHandler {
                     var modifier = entry.modifier();
                     String attributeId = attribute.getDescriptionId();
                     double amount = modifier.amount();
+                    //attack speed fix
                     if (attributeId.equals("attribute.name.generic.attack_speed")) {
                         amount += 4.0;
                     }
 
-                    // Skip custom armor toughness lines if value is 0
-                    if (attributeId.equals("attribute.name.generic.armor_toughness") && amount == 0.0) {
+                    //crit hit fix
+                    if (attributeId.equals("attribute.explorers_of_legends.crit_rate") || attributeId.equals("attribute.explorers_of_legends.crit_damage")) {
+                        amount *= 100;
+                    }
+
+                    //skip attack damage only if the weapon has the attribute slicing damage, piercing damage, or blunt damage.
+                    if (attributeId.equals("attribute.explorers_of_legends.slicing_damage")
+                            || attributeId.equals("attribute.explorers_of_legends.piercing_damage")
+                            || attributeId.equals("attribute.explorers_of_legends.blunt_damage")) {
+                        hasPhysicalAttack = true;
+                    }
+
+                    // Skip value is 0
+                    if (amount == 0.0) {
                         continue;
                     }
 
-                    // Format the amount: round to 6 decimal places, then remove trailing .0 and unnecessary zeros
+                    // Format the amount: round to 4 decimal places, then remove trailing .0 and unnecessary zeros
                     String displayAmount = new java.math.BigDecimal(amount)
-                            .setScale(6, java.math.RoundingMode.HALF_UP)
+                            .setScale(4, java.math.RoundingMode.HALF_UP)
                             .stripTrailingZeros()
                             .toPlainString();
 
                     String attribute_icon = switch (attributeId) {
-                        case "attribute.name.generic.armor" -> "\uA000";
-                        case "attribute.name.generic.armor_toughness" -> "\uA001";
+                        case "attribute.explorers_of_legends.tooltip_attack" -> "\uF000";
+                        case "attribute.explorers_of_legends.slicing_damage" -> "\uA002";
+                        case "attribute.explorers_of_legends.blunt_damage" -> "\uA002";
+                        case "attribute.explorers_of_legends.piercing_damage" -> "\uA002";
+                        case "attribute.explorers_of_legends.magic_damage" -> "\uA048";
+                        case "attribute.explorers_of_legends.projectile_damage" -> "\uA053";
+                        case "attribute.explorers_of_legends.spectral_damage" -> "\uF000";
+
+                        case "attribute.explorers_of_legends.water_damage" -> "\uA043";
+                        case "attribute.explorers_of_legends.air_damage" -> "\uA045";
+                        case "attribute.explorers_of_legends.fire_damage" -> "\uA037";
+                        case "attribute.explorers_of_legends.nature_damage" -> "\uA041";
+                        case "attribute.explorers_of_legends.earth_damage" -> "\uA035";
+
                         case "attribute.name.generic.attack_damage" -> "\uA002";
-                        case "attribute.name.generic.attack_knockback" -> "\uA003";
                         case "attribute.name.generic.attack_speed" -> "\uA004";
-                        case "attribute.name.generic.block_break_speed" -> "\uA005";
-                        case "attribute.name.generic.block_interaction_range" -> "\uA006";
-                        case "attribute.name.generic.burning_time" -> "\uA007";
-                        case "attribute.name.generic.entity_interaction_range" -> "\uA008";
-                        case "attribute.name.generic.explosion_knockback_resistance" -> "\uA009";
-                        case "attribute.name.generic.fall_damage_multiplier" -> "\uA010";
-                        case "attribute.name.generic.flying_speed" -> "\uA011";
-                        case "attribute.name.generic.follow_range" -> "\uA012";
-                        case "attribute.name.generic.gravity" -> "\uA013";
-                        case "attribute.name.generic.jump_strength" -> "\uA014";
-                        case "attribute.name.generic.knockback_resistance" -> "\uA015";
-                        case "attribute.name.generic.luck" -> "\uA016";
+                        case "attribute.explorers_of_legends.cast_speed" -> "\uA052";
+                        case "attribute.explorers_of_legends.draw_speed" -> "\uA052";
+
+                        case "attribute.name.generic.attack_range" -> "\uA062";
+                        case "attribute.name.generic.attack_knockback" -> "\uA003";
+
+                        case "attribute.explorers_of_legends.crit_rate" -> "\uA032";
+                        case "attribute.explorers_of_legends.crit_damage" -> "\uA033";
+
                         case "attribute.name.generic.max_absorption" -> "\uA017";
                         case "attribute.name.generic.max_health" -> "\uA018";
+                        case "attribute.explorers_of_legends.health_regen" -> "\uA062";
+                        case "attribute.explorers_of_legends.mana" -> "\uA049";
+                        case "attribute.explorers_of_legends.max_mana" -> "\uA050";
+                        case "attribute.explorers_of_legends.mana_regen" -> "\uA051";
+                        case "attribute.explorers_of_legends.stamina" -> "\uA059";
+                        case "attribute.explorers_of_legends.max_stamina" -> "\uA060";
+                        case "attribute.explorers_of_legends.stamina_regen" -> "\uA061";
+
+                        case "attribute.name.generic.armor" -> "\uA000";
+                        case "attribute.name.generic.armor_toughness" -> "\uA001";
+
+                        case "attribute.name.generic.knockback_resistance" -> "\uA015";
+                        case "attribute.name.generic.explosion_knockback_resistance" -> "\uA009";
+
+                        case "attribute.explorers_of_legends.magic_resistance" -> "\uA049";
+                        case "attribute.explorers_of_legends.projectile_resistance" -> "\uA054";
+
+                        case "attribute.explorers_of_legends.earth_resistance" -> "\uA036";
+                        case "attribute.explorers_of_legends.fire_resistance" -> "\uA038";
+                        case "attribute.explorers_of_legends.nature_resistance" -> "\uA042";
+                        case "attribute.explorers_of_legends.water_resistance" -> "\uA044";
+                        case "attribute.explorers_of_legends.air_resistance" -> "\uA046";
+
+                        case "attribute.explorers_of_legends.spirit_attack_speed" -> "\uA055";
+                        case "attribute.explorers_of_legends.spirit_damage" -> "\uA056";
+                        case "attribute.explorers_of_legends.spirit_health" -> "\uA057";
+                        case "attribute.explorers_of_legends.spirit_movement_speed" -> "\uA058";
+
                         case "attribute.name.generic.mining_efficiency" -> "\uA019";
                         case "attribute.name.generic.movement_efficiency" -> "\uA020";
                         case "attribute.name.generic.movement_speed" -> "\uA021";
@@ -311,47 +366,60 @@ public class TooltipHandler {
                         case "attribute.name.generic.submerged_mining_speed" -> "\uA028";
                         case "attribute.name.generic.sweeping_damage_ratio" -> "\uA029";
                         case "attribute.name.generic.tempt_range" -> "\uA030";
-                        case "attribute.explorers_of_legends.crit_rate" -> "\uA031";
-                        case "attribute.explorers_of_legends.crit_damage" -> "\uA032";
-                        case "attribute.explorers_of_legends.dark_damage" -> "\uA033";
-                        case "attribute.explorers_of_legends.dark_resistance" -> "\uA034";
-                        case "attribute.explorers_of_legends.earth_damage" -> "\uA035";
-                        case "attribute.explorers_of_legends.earth_resistance" -> "\uA036";
-                        case "attribute.explorers_of_legends.fire_damage" -> "\uA037";
-                        case "attribute.explorers_of_legends.fire_resistance" -> "\uA038";
-                        case "attribute.explorers_of_legends.light_damage" -> "\uA039";
-                        case "attribute.explorers_of_legends.light_resistance" -> "\uA040";
-                        case "attribute.explorers_of_legends.plant_damage" -> "\uA041";
-                        case "attribute.explorers_of_legends.plant_resistance" -> "\uA042";
-                        case "attribute.explorers_of_legends.water_damage" -> "\uA043";
-                        case "attribute.explorers_of_legends.water_resistance" -> "\uA044";
-                        case "attribute.explorers_of_legends.wind_damage" -> "\uA045";
-                        case "attribute.explorers_of_legends.wind_resistance" -> "\uA046";
-                        case "attribute.explorers_of_legends.magic_damage" -> "\uA047";
-                        case "attribute.explorers_of_legends.magic_resistance" -> "\uA048";
-                        case "attribute.explorers_of_legends.mana" -> "\uA049";
-                        case "attribute.explorers_of_legends.max_mana" -> "\uA050";
-                        case "attribute.explorers_of_legends.mana_regen" -> "\uA051";
-                        case "attribute.explorers_of_legends.draw_speed" -> "\uA052";
-                        case "attribute.explorers_of_legends.projectile_damage" -> "\uA053";
-                        case "attribute.explorers_of_legends.projectile_resistance" -> "\uA054";
-                        case "attribute.explorers_of_legends.spirit_attack_speed" -> "\uA055";
-                        case "attribute.explorers_of_legends.spirit_damage" -> "\uA056";
-                        case "attribute.explorers_of_legends.spirit_health" -> "\uA057";
-                        case "attribute.explorers_of_legends.spirit_movement_speed" -> "\uA058";
-                        case "attribute.explorers_of_legends.stamina" -> "\uA059";
-                        case "attribute.explorers_of_legends.max_stamina" -> "\uA060";
-                        case "attribute.explorers_of_legends.stamina_regen" -> "\uA061";
-                        case "attribute.explorers_of_legends.health_regen" -> "\uA062";
+                        case "attribute.name.generic.block_break_speed" -> "\uA005";
+                        case "attribute.name.generic.block_interaction_range" -> "\uA006";
+                        case "attribute.name.generic.burning_time" -> "\uA007";
+                        case "attribute.name.generic.entity_interaction_range" -> "\uA008";
+                        case "attribute.name.generic.fall_damage_multiplier" -> "\uA010";
+                        case "attribute.name.generic.flying_speed" -> "\uA011";
+                        case "attribute.name.generic.follow_range" -> "\uA012";
+                        case "attribute.name.generic.gravity" -> "\uA013";
+                        case "attribute.name.generic.jump_strength" -> "\uA014";
+                        case "attribute.name.generic.luck" -> "\uA016";
                         case "attribute.name.neoforge.creative_flight" -> "\uA063";
                         case "attribute.name.neoforge.nametag_distance" -> "\uA064";
                         case "attribute.name.neoforge.swim_speed" -> "\uA065";
-                        case "attribute.name.generic.attack_range" -> "\uA062";
                         default -> "";
                     };
 
                     ResourceLocation attributeFontLocation = ResourceLocation.fromNamespaceAndPath(ExplorersOfLegends.MODID, "attributes");
                     ResourceLocation elementFontLocation = ResourceLocation.fromNamespaceAndPath(ExplorersOfLegends.MODID, "elements");
+
+                    //crit stats fix
+                    if (attributeId.equals("attribute.explorers_of_legends.crit_rate") || attributeId.equals("attribute.explorers_of_legends.crit_damage")) {
+                        try {
+                            double value = Double.parseDouble(displayAmount);
+                            if (value < 0) {
+                                displayAmount = "-" + Math.abs((int)value);
+                            } else {
+                                displayAmount = "+" + (int)value;
+                            }
+                        } catch (NumberFormatException e) {
+                            displayAmount = "+" + displayAmount;
+                        }
+
+                        tooltip.add(Component.literal("  ")
+                                .append(Component.literal(attribute_icon)
+                                        .setStyle(Style.EMPTY.withFont(attributeFontLocation).withColor(PRIMARY_COLOR)))
+                                .append(Component.literal(" "))
+                                .append(Component.translatable(attribute.getDescriptionId()).withStyle(SECONDARY_COLOR))
+                                .append(Component.literal(": ").withStyle(SECONDARY_COLOR))
+                                .append(Component.literal(displayAmount + "%").withStyle(PRIMARY_COLOR))
+                        );
+                        continue;
+                    }
+
+                    if (attributeId.equals("attribute.explorers_of_legends.tooltip_attack")) {
+                        tooltip.add(Component.literal("  ")
+                                .append(Component.literal(attribute_icon)
+                                        .setStyle(Style.EMPTY.withFont(elementFontLocation).withColor(ChatFormatting.WHITE)))
+                                .append(Component.literal(" "))
+                                .append(Component.translatable(attribute.getDescriptionId()).withStyle(SECONDARY_COLOR))
+                                .append(Component.literal(": ").withStyle(SECONDARY_COLOR))
+                                .append(Component.literal(displayAmount).withStyle(PRIMARY_COLOR))
+                        );
+                        continue;
+                    }
 
                     tooltip.add(Component.literal("  ")
                         .append(Component.literal(attribute_icon)
@@ -361,6 +429,12 @@ public class TooltipHandler {
                         .append(Component.literal(": ").withStyle(SECONDARY_COLOR))
                         .append(Component.literal(displayAmount).withStyle(PRIMARY_COLOR))
                     );
+                }
+                if (hasPhysicalAttack) {
+                    tooltip.removeIf(line -> {
+                        String raw = line.getString().toLowerCase();
+                        return raw.contains("attack damage");
+                    });
                 }
 
                 tooltip.add(Component.empty());

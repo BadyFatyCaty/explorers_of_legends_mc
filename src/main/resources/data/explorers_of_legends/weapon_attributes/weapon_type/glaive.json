@@ -1,13 +1,13 @@
 {
   "attributes": {
     "range_bonus": 0.5,
-    "pose": "bettercombat:pose_two_handed_polearm",
+    "pose": "explorers_of_legends:pose_greatsword",
     "two_handed": true,
     "category": "glaive",
     "attacks": [
       {
         "hitbox": "VERTICAL_PLANE",
-        "damage_multiplier": 0.8,
+        "damage_multiplier": 1,
         "angle": 150,
         "upswing": 0.5,
         "animation": "bettercombat:two_handed_slash_vertical_right",
@@ -17,7 +17,7 @@
       },
       {
         "hitbox": "VERTICAL_PLANE",
-        "damage_multiplier": 0.8,
+        "damage_multiplier": 1,
         "angle": 150,
         "upswing": 0.5,
         "animation": "bettercombat:two_handed_slash_vertical_left",
@@ -27,7 +27,7 @@
       },
       {
         "hitbox": "HORIZONTAL_PLANE",
-        "damage_multiplier": 1.4,
+        "damage_multiplier": 1,
         "angle": 180,
         "upswing": 0.5,
         "animation": "bettercombat:two_handed_slash_horizontal_right",

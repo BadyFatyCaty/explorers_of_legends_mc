@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.badyfatycaty.explorers_of_legends.attributes.ModAttributes;
 import net.badyfatycaty.explorers_of_legends.block.ModBlocks;
 import net.badyfatycaty.explorers_of_legends.block.entity.ModBlockEntities;
+import net.badyfatycaty.explorers_of_legends.block.renderer.ForgeBlockRenderer;
 import net.badyfatycaty.explorers_of_legends.components.ModDataComponents;
 import net.badyfatycaty.explorers_of_legends.effect.ModEffects;
 import net.badyfatycaty.explorers_of_legends.events.ModBowEvents;
@@ -17,6 +18,9 @@ import net.badyfatycaty.explorers_of_legends.particle.ModParticles;
 import net.badyfatycaty.explorers_of_legends.screen.ModMenuTypes;
 import net.badyfatycaty.explorers_of_legends.screen.custom.ForgeScreen;
 import net.badyfatycaty.explorers_of_legends.util.ModItemProperties;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
@@ -112,6 +116,12 @@ public class ExplorersOfLegends
                     (stack, level, entity, seed) -> {
                         return (entity != null && entity.isUsingItem() && entity.getUseItem() == stack) ? 1.0F : 0.0F;
                     });
+            event.enqueueWork(() -> {
+
+
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.FORGE.get(), RenderType.cutout());
+                BlockEntityRenderers.register(ModBlockEntities.FORGE_BE.get(), ForgeBlockRenderer::new);
+            });
         }
 
         @SubscribeEvent

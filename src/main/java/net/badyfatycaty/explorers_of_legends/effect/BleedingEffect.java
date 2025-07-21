@@ -1,9 +1,12 @@
 package net.badyfatycaty.explorers_of_legends.effect;
 
+import net.badyfatycaty.explorers_of_legends.damages.ModDamageTypes;
 import net.badyfatycaty.explorers_of_legends.particle.ModParticles;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
 public class BleedingEffect extends MobEffect {
     public BleedingEffect(MobEffectCategory category, int color) {
@@ -27,11 +30,14 @@ public class BleedingEffect extends MobEffect {
             }
         }
 
-        // Deal damage every second (20 ticks)
-        if (livingEntity.tickCount % 20 == 0) {
+        // Deal damage every second (20 ticks), only on the server
+        if (!livingEntity.level().isClientSide && livingEntity.tickCount % 20 == 0) {
             float basePercent = 0.01f + (amplifier * 0.005f);
             float damageAmount = livingEntity.getMaxHealth() * basePercent;
-            livingEntity.hurt(livingEntity.damageSources().magic(), damageAmount);
+            if (livingEntity.level() instanceof ServerLevel serverLevel) {
+
+                livingEntity.hurt(ModDamageTypes.bleeding(serverLevel), damageAmount);
+            }
         }
 
         return super.applyEffectTick(livingEntity, amplifier);

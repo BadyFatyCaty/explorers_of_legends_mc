@@ -12,8 +12,6 @@ import net.minecraft.world.entity.player.Inventory;
 public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
     private static final ResourceLocation GUI_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(ExplorersOfLegends.MOD_ID,"textures/gui/container/forge.png");
-    private static final ResourceLocation ARROW_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(ExplorersOfLegends.MOD_ID,"textures/gui/sprites/container/forge/burn_progress.png");
     private static final ResourceLocation FIRE_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(ExplorersOfLegends.MOD_ID,"textures/gui/sprites/container/forge/lit_progress.png");
 
@@ -37,12 +35,6 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
             RenderSystem.setShaderTexture(0, FIRE_TEXTURE);
             // Draw from top, shrink downward as burn decreases
             guiGraphics.blit(FIRE_TEXTURE, x + 81, y + 38 + (14 - burn), 0, 14 - burn, 14, burn, 14, 14);
-        }
-
-        if (menu.isCrafting()) {
-            int progress = menu.getScaledArrowProgress();
-            RenderSystem.setShaderTexture(0, ARROW_TEXTURE);
-            guiGraphics.blit(ARROW_TEXTURE, x + 103, y + 36, 0, 0, progress, 16, 24, 16);
         }
     }
 

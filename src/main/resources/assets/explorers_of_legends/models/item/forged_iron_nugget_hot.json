@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "explorers_of_legends:item/forged_iron/forged_iron_nugget_hot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "damage": 0
+      },
+      "model": "explorers_of_legends:item/forged_iron_nugget/forged_iron_nugget_hot"
+    },
+    {
+      "predicate": {
+        "damage": 0.5
+      },
+      "model": "explorers_of_legends:item/forged_iron_nugget/forged_iron_nugget_cooling"
+    },
+    {
+      "predicate": {
+        "damage": 1
+      },
+      "model": "explorers_of_legends:item/forged_iron_nugget/forged_iron_nugget"
+    }
+  ]
+}

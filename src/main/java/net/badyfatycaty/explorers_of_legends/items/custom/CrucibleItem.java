@@ -27,9 +27,19 @@ public class CrucibleItem extends Item {
         int maxDurability = stack.getMaxDamage();
 
         tooltipComponents.add(Component.literal(""));
-        MutableComponent textComponent = Component.translatable("item.explorers_of_ether.crucible.tooltip").withStyle(ChatFormatting.WHITE);
+        MutableComponent textComponent = Component.translatable("item.explorers_of_legends.crucible.tooltip").withStyle(ChatFormatting.WHITE);
         MutableComponent durabilityComponent = Component.literal(": ").withStyle(ChatFormatting.WHITE)
                 .append(Component.literal(durabilityLeft + "/" + maxDurability).withStyle(ChatFormatting.RED));
         tooltipComponents.add(textComponent.append(durabilityComponent));
+    }
+
+    @Override
+    public boolean isBarVisible(ItemStack stack) {
+        return true;
+    }
+
+    @Override
+    public int getBarColor(ItemStack stack) {
+        return 0xf4680b;
     }
 }

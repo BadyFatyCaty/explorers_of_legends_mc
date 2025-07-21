@@ -1,8 +1,3 @@
 {
-  "parent": "explorers_of_legends:weapon_type/bow",
-  "attributes": {
-    "attack_range": 1.5,
-    "two_handed": true,
-    "category": "bow"
-  }
+  "parent": "explorers_of_legends:weapon_type/bow"
 }

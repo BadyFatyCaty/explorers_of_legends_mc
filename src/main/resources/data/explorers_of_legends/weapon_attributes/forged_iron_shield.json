@@ -1,7 +1,3 @@
 {
-  "parent": "bettercombat:claw",
-  "attributes": {
-    "two_handed": false,
-    "category": "shield"
-  }
+  "parent": "explorers_of_legends:weapon_type/shield"
 }

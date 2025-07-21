@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "explorers_of_legends:item/forged_iron/dagger/forged_iron_dagger_blade"
-  }
-}

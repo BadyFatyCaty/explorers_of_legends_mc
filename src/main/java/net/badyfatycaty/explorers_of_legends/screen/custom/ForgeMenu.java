@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class ForgeMenu extends AbstractContainerMenu {
@@ -17,54 +18,69 @@ public class ForgeMenu extends AbstractContainerMenu {
     private final Level level;
     private final ContainerData data;
 
+    // Custom slot class that only allows 1 item
+    private static class SingleItemSlot extends SlotItemHandler {
+        public SingleItemSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+            super(itemHandler, index, xPosition, yPosition);
+        }
+
+        @Override
+        public int getMaxStackSize() {
+            return 1;
+        }
+
+        @Override
+        public int getMaxStackSize(ItemStack stack) {
+            return 1;
+        }
+    }
+
     public ForgeMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public ForgeMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.FORGE_MENU.get(), pContainerId);
+        checkContainerSize(inv, 22);
         this.blockEntity = ((ForgeBlockEntity) entity);
         this.level = inv.player.level();
         this.data = data;
 
-        addPlayerInventory(inv);
-        addPlayerHotbar(inv);
-
-        // Crafting grid (3x3)
-        int slotIndex = 0;
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                this.addSlot(new SlotItemHandler(blockEntity.itemHandler, slotIndex, 8 + col * 18, 18 + row * 18));
-                slotIndex++;
-            }
+        // Top row - 9 slots (0-8)
+        for (int col = 0; col < 9; col++) {
+            this.addSlot(new SingleItemSlot(blockEntity.itemHandler, col, 8 + col * 18, 18));
         }
 
-        // Crucible slot (top solo)
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 9, 80, 18));
+        // Middle row - 6 slots (9-14)
+        // Left side (9-11) - 3 slots
+        for (int col = 0; col < 3; col++) {
+            this.addSlot(new SingleItemSlot(blockEntity.itemHandler, 9 + col, 8 + col * 18, 36));
+        }
+        // Right side (12-14) - 3 slots
+        for (int col = 3; col < 6; col++) {
+            this.addSlot(new SingleItemSlot(blockEntity.itemHandler, 9 + col, 62 + col * 18, 36));
+        }
 
-        // Fuel slot (lava bucket)
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 10, 80, 54));
+        // Bottom row - 6 slots (15-20)
+        // Left side (15-17) - 3 slots
+        for (int col = 0; col < 3; col++) {
+            this.addSlot(new SingleItemSlot(blockEntity.itemHandler, 15 + col, 8 + col * 18, 54));
+        }
+        // Right side (18-20) - 3 slots
+        for (int col = 3; col < 6; col++) {
+            this.addSlot(new SingleItemSlot(blockEntity.itemHandler, 15 + col, 62 + col * 18, 54));
+        }
 
-        // Output slot
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 11, 140, 36));
+        // Fuel slot (21) - centered
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 21, 80, 54));
 
+        addPlayerInventory(inv);
+        addPlayerHotbar(inv);
         addDataSlots(data);
-    }
-
-    public boolean isCrafting() {
-        return data.get(0) > 0;
     }
 
     public boolean hasFuel() {
         return data.get(2) > 0;
-    }
-
-    public int getScaledArrowProgress() {
-        int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);
-        int arrowPixelSize = 24;
-
-        return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
     }
 
     public int getScaledBurnProgress() {
@@ -75,13 +91,6 @@ public class ForgeMenu extends AbstractContainerMenu {
         return maxBurn > 0 && burn > 0 ? (burn * firePixelSize) / maxBurn : 0;
     }
 
-    // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
-    // must assign a slot number to each of the slots used by the GUI.
-    // For this container, we can see both the tile inventory's slots as well as the player inventory slots and the hotbar.
-    // Each time we add a Slot to the container, it automatically increases the slotIndex, which means
-    //  0 - 8 = hotbar slots (which will map to the InventoryPlayer slot numbers 0 - 8)
-    //  9 - 35 = player inventory slots (which map to the InventoryPlayer slot numbers 9 - 35)
-    //  36 - 44 = TileInventory slots, which map to our TileEntity slot numbers 0 - 8)
     private static final int HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -89,25 +98,30 @@ public class ForgeMenu extends AbstractContainerMenu {
     private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
+    private static final int TE_INVENTORY_SLOT_COUNT = 22;
 
-    // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 12;  // must be the number of slots you have!
     @Override
     public ItemStack quickMoveStack(Player playerIn, int pIndex) {
         Slot sourceSlot = slots.get(pIndex);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
-        // Check if the slot clicked is one of the vanilla container slots
         if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            // This is a vanilla container slot so merge the stack into the tile inventory
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
-                    + TE_INVENTORY_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;  // EMPTY_ITEM
+            // Coming from player inventory - only allow moving 1 item to single-item slots
+            if (sourceStack.getCount() > 1 && pIndex >= TE_INVENTORY_FIRST_SLOT_INDEX && pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + 21) {
+                // For single-item slots, split the stack
+                ItemStack singleItem = sourceStack.split(1);
+                if (!moveItemStackTo(singleItem, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + 21, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else {
+                if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
+                    return ItemStack.EMPTY;
+                }
             }
         } else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            // This is a TE slot so merge the stack into the players inventory
+            // Coming from TE inventory - can move freely to player inventory
             if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;
             }
@@ -115,7 +129,7 @@ public class ForgeMenu extends AbstractContainerMenu {
             System.out.println("Invalid slotIndex:" + pIndex);
             return ItemStack.EMPTY;
         }
-        // If stack size == 0 (the entire stack was moved) set slot contents to null
+
         if (sourceStack.getCount() == 0) {
             sourceSlot.set(ItemStack.EMPTY);
         } else {
