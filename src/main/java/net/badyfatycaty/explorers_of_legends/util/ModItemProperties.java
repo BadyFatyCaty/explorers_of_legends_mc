@@ -13,6 +13,7 @@ import net.minecraft.world.item.component.ChargedProjectiles;
 public class ModItemProperties {
     public static void addCustomItemProperties() {
         makeCustomBow(ForgedIronItems.FORGED_IRON_BOW.get());
+        makeCustomBow(ForgedIronItems.FORGED_IRON_LONGBOW.get());
         makeCustomShield(ForgedIronItems.FORGED_IRON_SHIELD.get());
     }
 

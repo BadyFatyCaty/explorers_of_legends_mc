@@ -1,0 +1,6 @@
+{
+    "parent": "explorers_of_legends:item/base/bow_20",
+    "textures": {
+        "layer0": "explorers_of_legends:item/forged_iron/longbow/forged_iron_longbow_pulling_2"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "explorers_of_legends:red_wrapped_stick_long"
+  },
+  "addition": {
+    "item": "explorers_of_legends:forged_iron_glaive_pommel"
+  },
+  "template": {
+    "item": "explorers_of_legends:forged_iron_glaive_blade"
+  },
+  "result": {
+    "count": 1,
+    "id": "explorers_of_legends:forged_iron_glaive"
+  }
+}

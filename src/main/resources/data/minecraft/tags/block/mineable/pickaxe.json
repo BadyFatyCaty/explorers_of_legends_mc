@@ -1,5 +1,10 @@
 {
   "values": [
-    "explorers_of_legends:crystallized_magma_block"
+    "explorers_of_legends:crystallized_magma_block",
+    "explorers_of_legends:forge",
+    "explorers_of_legends:casting_table",
+    "explorers_of_legends:casting_basin",
+    "explorers_of_legends:forged_iron_block",
+    "explorers_of_legends:ceramic"
   ]
 }

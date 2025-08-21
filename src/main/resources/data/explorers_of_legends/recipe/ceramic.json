@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 250,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "explorers_of_legends:casting_clay"
+  },
+  "result": {
+    "id": "explorers_of_legends:ceramic"
+  }
+}

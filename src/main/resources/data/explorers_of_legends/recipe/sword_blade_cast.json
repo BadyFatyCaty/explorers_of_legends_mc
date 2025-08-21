@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "explorers_of_legends:blank_cast"
-  },
-  "result": "explorers_of_legends:sword_blade_cast",
-  "count": 1
-}

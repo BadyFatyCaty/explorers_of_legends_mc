@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "explorers_of_legends:item/forged_iron/glaive/forged_iron_glaive_blade"
   }

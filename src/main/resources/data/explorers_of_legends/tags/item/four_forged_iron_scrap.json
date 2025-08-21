@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "explorers_of_legends:forged_iron_ingot",
+    "explorers_of_legends:forged_iron_stick",
+    "explorers_of_legends:forged_iron_sheet",
+    "explorers_of_legends:tiny_block_of_forged_iron"
+  ]
+}

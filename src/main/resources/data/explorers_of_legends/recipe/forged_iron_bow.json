@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "explorers_of_legends:forged_iron_bowstring"
+  },
+  "addition": {
+    "item": "minecraft:red_wool"
+  },
+  "template": {
+    "item": "explorers_of_legends:forged_iron_bow_stave"
+  },
+  "result": {
+    "count": 1,
+    "id": "explorers_of_legends:forged_iron_bow"
+  }
+}

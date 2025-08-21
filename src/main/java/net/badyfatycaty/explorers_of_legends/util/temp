@@ -1,0 +1,46 @@
+package net.badyfatycaty.explorers_of_legends.util;
+
+import net.badyfatycaty.explorers_of_legends.block.entity.ForgeBlockEntity;
+import net.badyfatycaty.explorers_of_legends.items.custom.HotItem;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
+
+public class HotItemCoolingTicker {
+
+    @SubscribeEvent
+    public static void onWorldTick(LevelTickEvent event) {
+        if (event.phase != TickEvent.Phase.END || event.getLevel().isClientSide) return;
+
+        Level level = event.getLevel();
+
+        for (BlockEntity be : level.blockEntityList) {
+            // Skip heating-capable forge block
+            if (be instanceof ForgeBlockEntity) continue;
+
+            be.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
+                for (int i = 0; i < handler.getSlots(); i++) {
+                    ItemStack stack = handler.getStackInSlot(i);
+                    if (stack.getItem() instanceof HotItem hotItem) {
+                        if (stack.getDamageValue() < stack.getMaxDamage()) {
+                            stack.setDamageValue(stack.getDamageValue() + 1);
+
+                            // Fully cooled: replace with cooled item
+                            if (stack.getDamageValue() >= stack.getMaxDamage()) {
+                                handler.extractItem(i, 1, false);
+                                handler.insertItem(i, hotItem.getCooledItem(), false);
+                                BlockPos pos = be.getBlockPos();
+                                level.playSound(null, pos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1.0f, 1.0f);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+}

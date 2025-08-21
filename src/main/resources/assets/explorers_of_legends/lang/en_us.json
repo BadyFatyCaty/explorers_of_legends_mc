@@ -1,12 +1,12 @@
 {
-  "creativetab.explorers_of_legends.explorers_of_legends_ingredients": "Explorers of Legends: Ingredients",
-  "creativetab.explorers_of_legends.explorers_of_legends_natural_blocks": "Explorers of Legends: Natural Blocks",
-  "creativetab.explorers_of_legends.explorers_of_legends_tools_and_utilities": "Explorers of Legends: Tools & Utilities",
-  "creativetab.explorers_of_legends.explorers_of_legends_functional_blocks": "Explorers of Legends: Functional Blocks",
-  "creativetab.explorers_of_legends.explorers_of_legends_building_blocks": "Explorers of Legends: Building Blocks",
-  "creativetab.explorers_of_legends.explorers_of_legends_combat": "Explorers of Legends: Combat",
-  "creativetab.explorers_of_legends.explorers_of_legends_redstone_blocks": "Explorers of Legends: Redstone Blocks",
-  "creativetab.explorers_of_legends.explorers_of_legends_spawn_eggs": "Explorers of Legends: Spawn Eggs",
+  "creativetab.explorers_of_legends.explorers_of_legends_ingredients": "EoL: Ingredients",
+  "creativetab.explorers_of_legends.explorers_of_legends_natural_blocks": "EoL: Natural Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_tools_and_utilities": "EoL: Tools & Utilities",
+  "creativetab.explorers_of_legends.explorers_of_legends_functional_blocks": "EoL: Functional Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_building_blocks": "EoL: Building Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_combat": "EoL: Combat",
+  "creativetab.explorers_of_legends.explorers_of_legends_redstone_blocks": "EoL: Redstone Blocks",
+  "creativetab.explorers_of_legends.explorers_of_legends_spawn_eggs": "EoL: Spawn Eggs",
 
   "effect.explorers_of_legends.bleeding": "Bleeding",
 
@@ -111,6 +111,7 @@
   "block.explorers_of_legends.forge": "Forge",
 
   "item.explorers_of_legends.crucible": "Crucible",
+  "item.explorers_of_legends.crucible.heat.tooltip": "Retains Heat",
   "item.explorers_of_legends.crucible.tooltip": "Molten Alloy Left",
 
   "item.explorers_of_legends.heatable.tooltip": "Can be Heated",

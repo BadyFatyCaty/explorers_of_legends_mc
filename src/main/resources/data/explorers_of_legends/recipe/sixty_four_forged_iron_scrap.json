@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "explorers_of_legends:sixty_four_forged_iron_scrap"
+    }
+  ],
+  "result": {
+    "id": "explorers_of_legends:forged_iron_scrap",
+    "count": 64
+  }
+}

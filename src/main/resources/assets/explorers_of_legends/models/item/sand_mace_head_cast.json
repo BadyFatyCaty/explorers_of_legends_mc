@@ -1,0 +1,6 @@
+{
+  "parent": "explorers_of_legends:item/base/cast_16x",
+  "textures": {
+    "top": "explorers_of_legends:item/cast/sand/sand_mace_head_cast"
+  }
+}

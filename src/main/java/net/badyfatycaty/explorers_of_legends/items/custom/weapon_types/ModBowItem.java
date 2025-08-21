@@ -33,6 +33,11 @@ public class ModBowItem extends ProjectileWeaponItem {
     public static final int BASE_DRAW_DURATION_TICKS = 20;
     public static final int DEFAULT_RANGE = 15;
 
+    public ModBowItem(Tier tier, Properties properties, float drawSpeed) {
+        super(properties.durability(tier.getUses()).stacksTo(1).component(DataComponents.TOOL, createToolProperties()));
+        this.tier = tier;
+    }
+
     public ModBowItem(Tier tier, Properties properties) {
         super(properties.durability(tier.getUses()).stacksTo(1).component(DataComponents.TOOL, createToolProperties()));
         this.tier = tier;
@@ -48,7 +53,10 @@ public class ModBowItem extends ProjectileWeaponItem {
     }
 
     public static ItemAttributeModifiers createAttributes(Tier tier, float projectileDamage, float drawSpeed, float attackSpeed) {
-        return ItemAttributeModifiers.builder().add(ProjectileDamage.PROJECTILE_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double)(projectileDamage + tier.getAttackDamageBonus()), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(DrawSpeed.DRAW_SPEED, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double)drawSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double)attackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
+        return ItemAttributeModifiers.builder().add(ProjectileDamage.PROJECTILE_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double)(projectileDamage + tier.getAttackDamageBonus()), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(DrawSpeed.DRAW_SPEED, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, (double)drawSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, (double)attackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
+                .build();
     }
 
 

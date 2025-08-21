@@ -29,6 +29,28 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ForgeBlockEntity extends BlockEntity implements MenuProvider {
+    public static boolean isFuel(ItemStack stack) {
+        return     stack.is(Items.ACACIA_LOG) || stack.is(Items.BIRCH_LOG)
+                || stack.is(Items.CHERRY_LOG) || stack.is(Items.JUNGLE_LOG)
+                || stack.is(Items.OAK_LOG) || stack.is(Items.DARK_OAK_LOG)
+                || stack.is(Items.MANGROVE_LOG) || stack.is(Items.SPRUCE_LOG)
+
+                || stack.is(Items.STRIPPED_ACACIA_LOG) || stack.is(Items.STRIPPED_BIRCH_LOG)
+                || stack.is(Items.STRIPPED_CHERRY_LOG) || stack.is(Items.STRIPPED_JUNGLE_LOG)
+                || stack.is(Items.STRIPPED_OAK_LOG) || stack.is(Items.STRIPPED_DARK_OAK_LOG)
+                || stack.is(Items.STRIPPED_MANGROVE_LOG) || stack.is(Items.STRIPPED_SPRUCE_LOG)
+
+                || stack.is(Items.ACACIA_WOOD) || stack.is(Items.BIRCH_WOOD)
+                || stack.is(Items.CHERRY_WOOD) || stack.is(Items.JUNGLE_WOOD)
+                || stack.is(Items.OAK_WOOD) || stack.is(Items.DARK_OAK_WOOD)
+                || stack.is(Items.MANGROVE_WOOD) || stack.is(Items.SPRUCE_WOOD)
+
+                || stack.is(Items.STRIPPED_ACACIA_WOOD) || stack.is(Items.STRIPPED_BIRCH_WOOD)
+                || stack.is(Items.STRIPPED_CHERRY_WOOD) || stack.is(Items.STRIPPED_JUNGLE_WOOD)
+                || stack.is(Items.STRIPPED_OAK_WOOD) || stack.is(Items.STRIPPED_DARK_OAK_WOOD)
+                || stack.is(Items.STRIPPED_MANGROVE_WOOD) || stack.is(Items.STRIPPED_SPRUCE_WOOD);
+    }
+
     public final ItemStackHandler itemHandler = new ItemStackHandler(22) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -38,26 +60,28 @@ public class ForgeBlockEntity extends BlockEntity implements MenuProvider {
             }
         }
 
+
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             if (slot == FUEL_SLOT) {
-                return stack.getItem() == Items.COAL || stack.getItem() == Items.CHARCOAL;
+                return isFuel(stack);
             }
             return true; // Allow all other slots to accept any item (can fine-tune later)
         }
     };
 
-    private static final int TOP_ROW_START = 0;    // Slots 0-8
-    private static final int TOP_ROW_END = 8;
-    private static final int MIDDLE_LEFT_START = 9;  // Slots 9-11
-    private static final int MIDDLE_LEFT_END = 11;
-    private static final int MIDDLE_RIGHT_START = 12; // Slots 12-14
-    private static final int MIDDLE_RIGHT_END = 14;
-    private static final int BOTTOM_LEFT_START = 15; // Slots 15-17
-    private static final int BOTTOM_LEFT_END = 17;
-    private static final int BOTTOM_RIGHT_START = 18; // Slots 18-20
-    private static final int BOTTOM_RIGHT_END = 20;
-    private static final int FUEL_SLOT = 21;         // Slot 21
+    private static final int FUEL_SLOT = 0;             // slot 0
+    private static final int TOP_ROW_START = 1;         // tarts at 1
+    private static final int TOP_ROW_END = 9;           // 1–9 (9 slots)
+    private static final int MIDDLE_LEFT_START = 10;    // 10–12
+    private static final int MIDDLE_LEFT_END = 12;
+    private static final int MIDDLE_RIGHT_START = 13;   // 13–15
+    private static final int MIDDLE_RIGHT_END = 15;
+    private static final int BOTTOM_LEFT_START = 16;    // 16–18
+    private static final int BOTTOM_LEFT_END = 18;
+    private static final int BOTTOM_RIGHT_START = 19;   // 19–21
+    private static final int BOTTOM_RIGHT_END = 21;
+
 
     protected final ContainerData data;
     private int progress = 0;
@@ -186,8 +210,7 @@ public class ForgeBlockEntity extends BlockEntity implements MenuProvider {
         }
 
         //Burning of the forge
-        boolean hasFuel = itemHandler.getStackInSlot(FUEL_SLOT).is(Items.COAL) ||
-                itemHandler.getStackInSlot(FUEL_SLOT).is(Items.CHARCOAL);
+        boolean hasFuel = isFuel(itemHandler.getStackInSlot(FUEL_SLOT));
 
         if (burnTime <= 0 && hasFuel) {
             burnTime = maxBurnTime;

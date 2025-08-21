@@ -17,6 +17,14 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("forge_be", () -> BlockEntityType.Builder.of(
                     ForgeBlockEntity::new, ModBlocks.FORGE.get()).build(null));
 
+    public static final Supplier<BlockEntityType<CastingTableBlockEntity>> CASTING_TABLE_BE =
+            BLOCK_ENTITIES.register("casting_table_be", () -> BlockEntityType.Builder.of(
+                    CastingTableBlockEntity::new, ModBlocks.CASTING_TABLE.get()).build(null));
+
+    public static final Supplier<BlockEntityType<CastingBasinBlockEntity>> CASTING_BASIN_BE =
+            BLOCK_ENTITIES.register("casting_basin_be", () -> BlockEntityType.Builder.of(
+                    CastingBasinBlockEntity::new, ModBlocks.CASTING_BASIN.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }
