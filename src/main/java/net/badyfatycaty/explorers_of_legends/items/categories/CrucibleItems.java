@@ -16,6 +16,9 @@ public class CrucibleItems {
     public static final DeferredItem<Item> RAW_IRON_AND_DIAMOND_CRUCIBLE = ITEMS.register("raw_iron_and_diamond_filled_crucible",
             () -> new Item(new Item.Properties().stacksTo(16)));
 
+    public static final DeferredItem<Item> FORGED_IRON_SCRAP_FILLED_CRUCIBLE = ITEMS.register("forged_iron_scrap_filled_crucible",
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
     public static final DeferredItem<Item> FORGED_IRON_CURCIBLE = ITEMS.register("molten_forged_iron_filled_crucible",
             () -> new CrucibleItem(new Item.Properties(), 8));
 

@@ -1,6 +1,7 @@
 {
   "attributes": {
     "range_bonus": 0,
+    "pose": "explorers_of_legends:pose_greatsword",
     "two_handed": true,
     "category": "double_axe",
     "attacks": [

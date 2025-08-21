@@ -1,0 +1,6 @@
+{
+  "parent": "explorers_of_legends:item/forged_iron_bow_stave",
+  "textures": {
+    "layer0": "explorers_of_legends:item/forged_iron/bow/forged_iron_bow_stave_cooling"
+  }
+}

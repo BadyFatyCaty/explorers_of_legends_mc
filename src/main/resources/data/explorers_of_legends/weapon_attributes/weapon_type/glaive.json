@@ -1,7 +1,7 @@
 {
   "attributes": {
     "range_bonus": 0.5,
-    "pose": "explorers_of_legends:pose_greatsword",
+    "pose": "bettercombat:pose_two_handed_polearm",
     "two_handed": true,
     "category": "glaive",
     "attacks": [

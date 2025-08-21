@@ -1,0 +1,6 @@
+{
+  "parent": "explorers_of_legends:item/base/battlestaff_32",
+  "textures": {
+    "layer0": "explorers_of_legends:item/colored/red_wrapped_stick_long"
+  }
+}

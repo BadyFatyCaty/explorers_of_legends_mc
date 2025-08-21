@@ -1,0 +1,28 @@
+{
+    "parent": "explorers_of_legends:item/base/bow_20",
+    "textures": {
+        "layer0": "explorers_of_legends:item/forged_iron/longbow/forged_iron_longbow"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "pulling": 1
+            },
+            "model": "explorers_of_legends:item/forged_iron_longbow_pulling_0"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.65
+            },
+            "model": "explorers_of_legends:item/forged_iron_longbow_pulling_1"
+        },
+        {
+            "predicate": {
+                "pulling": 1,
+                "pull": 0.9
+            },
+            "model": "explorers_of_legends:item/forged_iron_longbow_pulling_2"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "explorers_of_legends:forged_iron_nugget",
+    "explorers_of_legends:forged_iron_ingot",
+    "explorers_of_legends:forged_iron_sheet",
+    "explorers_of_legends:forged_iron_stick",
+    "explorers_of_legends:forged_iron_string",
+    "explorers_of_legends:tiny_block_of_forged_iron",
+    "explorers_of_legends:small_block_of_forged_iron",
+    "explorers_of_legends:medium_block_of_forged_iron",
+    "explorers_of_legends:large_block_of_forged_iron",
+    "explorers_of_legends:huge_block_of_forged_iron"
+  ]
+}

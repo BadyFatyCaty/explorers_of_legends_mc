@@ -36,11 +36,11 @@ public class ModItems {
     public static final DeferredItem<Item> UNIQUE = ITEMS.register("unique",
             () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> KATANA = ITEMS.register("katana",
-            () -> new EoLKatanaItem(Tiers.DIAMOND, new Item.Properties()));
+    public static final DeferredItem<Item> RED_WRAPPED_STICK = ITEMS.register("red_wrapped_stick",
+            () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> ELEMENTAL_DISK = ITEMS.register("elemental_disk",
-            () -> new EoLChakramItem(Tiers.NETHERITE, new Item.Properties()));
+    public static final DeferredItem<Item> RED_WRAPPED_STICK_LONG = ITEMS.register("red_wrapped_stick_long",
+            () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> CRYSTALLIZED_MAGMA = ITEMS.register("crystallized_magma",
             () -> new Item(new Item.Properties()));

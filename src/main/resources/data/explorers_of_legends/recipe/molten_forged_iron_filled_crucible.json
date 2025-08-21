@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "ingredient": {
-    "item": "explorers_of_legends:raw_iron_and_diamond_filled_crucible"
+    "tag": "explorers_of_legends:raw_forged_iron_crucibles"
   },
   "result": {
     "id": "explorers_of_legends:molten_forged_iron_filled_crucible"

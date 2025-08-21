@@ -2,7 +2,7 @@ package net.badyfatycaty.explorers_of_legends.block;
 
 import com.mojang.serialization.MapCodec;
 import net.badyfatycaty.explorers_of_legends.ExplorersOfLegends;
-import net.badyfatycaty.explorers_of_legends.block.custom.ForgeBlock;
+import net.badyfatycaty.explorers_of_legends.block.custom.*;
 import net.badyfatycaty.explorers_of_legends.items.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -19,12 +19,12 @@ public class ModBlocks {
             DeferredRegister.createBlocks(ExplorersOfLegends.MOD_ID);
 
     public static final DeferredBlock<Block> CASTING_TABLE = registerBlock("casting_table",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BASALT)
+            () -> new CastingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BASALT)
                     .noOcclusion()
             ));
 
     public static final DeferredBlock<Block> CASTING_BASIN = registerBlock("casting_basin",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BASALT)
+            () -> new CastingBasinBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BASALT)
                     .noOcclusion()
             ));
 
@@ -39,6 +39,34 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .lightLevel(state -> 7)
             ));
+
+    public static final DeferredBlock<Block> CASTING_SAND = registerBlock("casting_sand",
+            () -> new CastingSandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND))
+    );
+
+    public static final DeferredBlock<Block> CASTING_CLAY = registerBlock("casting_clay",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CLAY))
+    );
+
+    public static final DeferredBlock<Block> CERAMIC = registerBlock("ceramic",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS))
+    );
+
+    public static final DeferredBlock<Block> SMITHY = registerBlock("smithy",
+            () -> new SmithyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRAFTING_TABLE).noOcclusion())
+    );
+
+    public static final DeferredBlock<Block> FORGED_IRON_BLOCK = registerBlock("forged_iron_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK))
+    );
+
+    public static final DeferredBlock<Block> CHISELED_FORGED_IRON = registerBlock("chiseled_forged_iron",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK))
+    );
+
+    public static final DeferredBlock<Block> CUT_FORGED_IRON = registerBlock("cut_forged_iron",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK))
+    );
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

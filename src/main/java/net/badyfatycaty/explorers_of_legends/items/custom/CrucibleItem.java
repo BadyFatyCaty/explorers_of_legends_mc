@@ -27,10 +27,12 @@ public class CrucibleItem extends Item {
         int maxDurability = stack.getMaxDamage();
 
         tooltipComponents.add(Component.literal(""));
-        MutableComponent textComponent = Component.translatable("item.explorers_of_legends.crucible.tooltip").withStyle(ChatFormatting.WHITE);
+        MutableComponent textComponentHeat = Component.translatable("item.explorers_of_legends.crucible.heat.tooltip").withStyle(ChatFormatting.GRAY);
+        MutableComponent textComponentToolTip = Component.translatable("item.explorers_of_legends.crucible.tooltip").withStyle(ChatFormatting.WHITE);
         MutableComponent durabilityComponent = Component.literal(": ").withStyle(ChatFormatting.WHITE)
                 .append(Component.literal(durabilityLeft + "/" + maxDurability).withStyle(ChatFormatting.RED));
-        tooltipComponents.add(textComponent.append(durabilityComponent));
+        tooltipComponents.add(textComponentHeat);
+        tooltipComponents.add(textComponentToolTip.append(durabilityComponent));
     }
 
     @Override

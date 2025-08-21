@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "explorers_of_legends:casting_sand"
+    }
+  ],
+  "result": {
+    "id": "explorers_of_legends:blank_sand_cast",
+    "count": 16
+  }
+}

@@ -10,8 +10,7 @@ import net.badyfatycaty.explorers_of_legends.effect.ModEffects;
 import net.badyfatycaty.explorers_of_legends.events.ModBowEvents;
 import net.badyfatycaty.explorers_of_legends.items.ModCreativeModeTabs;
 import net.badyfatycaty.explorers_of_legends.items.ModItems;
-import net.badyfatycaty.explorers_of_legends.items.categories.CrucibleItems;
-import net.badyfatycaty.explorers_of_legends.items.categories.ForgedIronItems;
+import net.badyfatycaty.explorers_of_legends.items.categories.*;
 import net.badyfatycaty.explorers_of_legends.particle.BloodParticles;
 import net.badyfatycaty.explorers_of_legends.particle.CritSkullParticle;
 import net.badyfatycaty.explorers_of_legends.particle.ModParticles;
@@ -70,6 +69,9 @@ public class ExplorersOfLegends
 
         CrucibleItems.register(modEventBus);
         ForgedIronItems.register(modEventBus);
+        SandCastItems.register(modEventBus);
+        ClayCastItems.register(modEventBus);
+        CeramicCastItems.register(modEventBus);
 
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);

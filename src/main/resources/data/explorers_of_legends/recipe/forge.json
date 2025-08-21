@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:smooth_stone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:blast_furnace"
+    },
+    "B": {
+      "item": "minecraft:iron_bars"
+    },
+    "C": {
+      "item": "minecraft:coal_block"
+    }
+  },
+  "pattern": [
+    "IBI",
+    "IXI",
+    "#C#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "explorers_of_legends:forge"
+  }
+}

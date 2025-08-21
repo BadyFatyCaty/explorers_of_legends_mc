@@ -1,15 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
   "base": {
-    "item": "explorers_of_legends:red_wrapped_stick"
+    "item": "explorers_of_legends:forged_iron_claymore_guard"
   },
   "addition": {
-    "item": "explorers_of_legends:forged_iron_claymore_guard"
+    "item": "explorers_of_legends:forged_iron_handle"
   },
   "template": {
     "item": "explorers_of_legends:forged_iron_claymore_blade"
   },
   "result": {
-    "item": "explorers_of_legends:forged_iron_claymore"
+    "count": 1,
+    "id": "explorers_of_legends:forged_iron_claymore"
   }
 }

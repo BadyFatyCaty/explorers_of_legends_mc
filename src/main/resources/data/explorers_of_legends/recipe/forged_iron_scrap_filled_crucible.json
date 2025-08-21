@@ -1,0 +1,77 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    [
+      {
+        "tag": "explorers_of_legends:forged_iron_materials"
+      },
+      {
+        "item": "explorers_of_legends:forged_iron_scrap"
+      }
+    ],
+    {
+      "item": "explorers_of_legends:crucible"
+    }
+  ],
+  "result": {
+    "id": "explorers_of_legends:forged_iron_scrap_filled_crucible",
+    "count": 1
+  }
+}

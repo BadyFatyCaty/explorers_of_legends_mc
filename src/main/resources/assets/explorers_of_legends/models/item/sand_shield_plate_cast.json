@@ -1,0 +1,6 @@
+{
+  "parent": "explorers_of_legends:item/base/cast_32x",
+  "textures": {
+    "top": "explorers_of_legends:item/cast/sand/sand_shield_plate_cast"
+  }
+}

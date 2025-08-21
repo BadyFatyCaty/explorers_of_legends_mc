@@ -1,0 +1,103 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "F": [
+      {
+        "item": "minecraft:warped_fence"
+      },
+      {
+        "item": "minecraft:spruce_fence"
+      },
+      {
+        "item": "minecraft:oak_fence"
+      },
+      {
+        "item": "minecraft:mangrove_fence"
+      },
+      {
+        "item": "minecraft:jungle_fence"
+      },
+      {
+        "item": "minecraft:dark_oak_fence"
+      },
+      {
+        "item": "minecraft:crimson_fence"
+      },
+      {
+        "item": "minecraft:cherry_fence"
+      },
+      {
+        "item": "minecraft:birch_fence"
+      },
+      {
+        "item": "minecraft:bamboo_fence"
+      },
+      {
+        "item": "minecraft:acacia_fence"
+      }
+    ],
+    "L": [
+      {
+        "item": "minecraft:acacia_log"
+      },
+      {
+        "item": "minecraft:birch_log"
+      },
+      {
+        "item": "minecraft:cherry_log"
+      },
+      {
+        "item": "minecraft:dark_oak_log"
+      },
+      {
+        "item": "minecraft:jungle_log"
+      },
+      {
+        "item": "minecraft:mangrove_log"
+      },
+      {
+        "item": "minecraft:oak_log"
+      },
+      {
+        "item": "minecraft:spruce_log"
+      },
+      {
+        "item": "minecraft:stripped_acacia_log"
+      },
+      {
+        "item": "minecraft:stripped_birch_log"
+      },
+      {
+        "item": "minecraft:stripped_cherry_log"
+      },
+      {
+        "item": "minecraft:stripped_dark_oak_log"
+      },
+      {
+        "item": "minecraft:stripped_jungle_log"
+      },
+      {
+        "item": "minecraft:stripped_mangrove_log"
+      },
+      {
+        "item": "minecraft:stripped_oak_log"
+      },
+      {
+        "item": "minecraft:stripped_spruce_log"
+      }
+    ]
+  },
+  "pattern": [
+    "III",
+    " F",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "explorers_of_legends:smithy"
+  }
+}

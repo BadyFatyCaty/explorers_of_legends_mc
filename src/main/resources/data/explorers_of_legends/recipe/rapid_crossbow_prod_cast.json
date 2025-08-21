@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "explorers_of_legends:blank_cast"
-  },
-  "result": "explorers_of_legends:rapid_crossbow_prod_cast",
-  "count": 1
-}

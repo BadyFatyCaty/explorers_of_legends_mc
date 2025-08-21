@@ -1,6 +1,7 @@
 {
   "attributes": {
     "range_bonus": -3,
+    "pose": "bettercombat:pose_two_handed_bow",
     "two_handed": true,
     "category": "bow",
     "attacks": [
@@ -9,7 +10,7 @@
         "damage_multiplier": 1,
         "angle": 120,
         "upswing": 0.5,
-        "animation": "bettercombat:one_handed_slash_horizontal_right",
+        "animation": "explorers_of_legends:warglaive_slash_horizontal_right",
         "swing_sound": {
           "id": "bettercombat:sword_slash"
         }
@@ -19,7 +20,7 @@
         "damage_multiplier": 1,
         "angle": 120,
         "upswing": 0.5,
-        "animation": "bettercombat:one_handed_slash_horizontal_left",
+        "animation": "explorers_of_legends:warglaive_slash_horizontal_left",
         "swing_sound": {
           "id": "bettercombat:sword_slash"
         }

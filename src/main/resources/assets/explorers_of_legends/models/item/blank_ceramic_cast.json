@@ -1,0 +1,8 @@
+{
+  "parent": "explorers_of_legends:item/base/cast_16x",
+  "textures": {
+    "top": "explorers_of_legends:item/cast/ceramic/blank_ceramic_cast",
+    "base": "explorers_of_legends:item/cast/ceramic/blank_ceramic_cast",
+    "particle": "explorers_of_legends:item/cast/ceramic/blank_ceramic_cast"
+  }
+}
