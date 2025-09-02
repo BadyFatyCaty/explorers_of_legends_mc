@@ -6,6 +6,7 @@ import net.badyfatycaty.explorers_of_legends.items.custom.weapon_types.EoLChakra
 import net.badyfatycaty.explorers_of_legends.items.custom.weapon_types.EoLKatanaItem;
 import net.badyfatycaty.explorers_of_legends.items.custom.weapon_types.EoLSwordItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
@@ -40,7 +41,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> RED_WRAPPED_STICK_LONG = ITEMS.register("red_wrapped_stick_long",
-            () -> new Item(new Item.Properties()));
+            () -> new SwordItem(Tiers.WOOD, new Item.Properties()));
 
     public static final DeferredItem<Item> CRYSTALLIZED_MAGMA = ITEMS.register("crystallized_magma",
             () -> new Item(new Item.Properties()));
